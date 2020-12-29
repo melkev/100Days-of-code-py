@@ -1,5 +1,4 @@
-from tkinter import *
-import time
+import tkinter
 import math
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
@@ -68,30 +67,31 @@ def count_down(count):
 # ---------------------------- UI SETUP ------------------------------- #
 
 
-window = Tk()
+window = tkinter.Tk()
 window.title("Pomodoro")
 window.config(padx=100, pady=50, bg=VIOLET)
 
-
-title_label = Label(text="Timer", fg=GREEN, bg=VIOLET,
-                    font=(FONT_NAME, 50, "bold"))
+title_label = tkinter.Label(text="Timer", fg=GREEN, bg=VIOLET,
+                            font=(FONT_NAME, 50, "bold"))
 title_label.grid(column=1, row=0)
 
-canvas = Canvas(width=200, height=224, bg=VIOLET, highlightthickness=0)
-tomato_img = PhotoImage(file="tomato.png")
+canvas = tkinter.Canvas(width=200, height=224, bg=VIOLET, highlightthickness=0)
+tomato_img = tkinter.PhotoImage(file="tomato.png")
 canvas.create_image(103, 112, image=tomato_img)
 timer_text = canvas.create_text(103, 130, text="00:00", fill="white",
                                 font=(FONT_NAME, 35, "bold"))
 canvas.grid(column=1, row=1)
 
 
-start_button = Button(text="Start", highlightthickness=0, command=start_timer)
+start_button = tkinter.Button(
+    text="Start", highlightthickness=0, command=start_timer)
 start_button.grid(column=0, row=2)
 
-reset_button = Button(text="reset", highlightthickness=0, command=reset_timer)
+reset_button = tkinter.Button(
+    text="reset", highlightthickness=0, command=reset_timer)
 reset_button.grid(column=2, row=2)
 
-check_marks = Label(fg=GREEN, bg=VIOLET)
+check_marks = tkinter.Label(fg=GREEN, bg=VIOLET)
 check_marks.grid(column=1, row=3)
 
 window.mainloop()
